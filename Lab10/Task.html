@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Форма регистрации</title>
+</head>
+<body>
+    <h4 align="center">Форма регистрации</h4>
+
+    <form>
+        <table align="center" cellpadding="5">
+            <tr><td align="right">Имя</td><td><input type="text"></td></tr>
+            <tr><td align="right">e-mail</td><td><input type="text"></td></tr>
+            <tr><td align="right">Пароль</td><td><input type="password"></td></tr>
+            <tr><td align="right">Повтор пароля</td><td><input type="password"></td></tr>
+            <tr>
+                <td align="right">Пол</td>
+                <td>
+                    <input type="radio" name="p" checked> мужской
+                    <input type="radio" name="p"> женский
+                </td>
+            </tr>
+            <tr>
+                <td align="right" valign="top">Увлечения</td>
+                <td>
+                    <select size="7">
+                        <option selected>компьютеры</option>
+                        <option>спорт</option>
+                        <option>игры</option>
+                        <option>животные</option>
+                        <option>автомобили</option>
+                        <option>клубы</option>
+                        <option>музыка</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td align="right" valign="top">Ваши пожелания</td>
+                <td><textarea rows="4" cols="22"></textarea></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Отправить">
+                    <input type="reset" value="Очистить">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>
