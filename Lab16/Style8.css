@@ -1,0 +1,40 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    border: 1px solid #7a9cd0;
+    padding: 25px;
+    max-width: 600px;
+    width: 100%;
+}
+
+p {
+    margin-bottom: 30px;
+    color: #000000;
+}
+p:last-child {
+    margin-bottom: 0;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}

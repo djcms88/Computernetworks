@@ -1,0 +1,16 @@
+body {
+    font-family: 'Times New Roman', serif;
+    padding: 20px;
+}
+
+.container {
+    border: 1px solid #7a9cd0;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+p {
+    text-align: center;
+    margin: 0;
+}

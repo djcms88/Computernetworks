@@ -1,0 +1,38 @@
+body {
+    font-family: "Times New Roman", Times, serif;
+    background-color: #f4f7f9;
+    padding: 20px;
+}
+
+.container {
+    background-color: #ffffff;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.text {
+    font-size: 16px;
+    color: #000000;
+    margin-bottom: 25px;
+}
+
+
+.lh-100 {
+    line-height: 1.0;
+}
+
+.lh-150 {
+    line-height: 1.5; 
+}
+
+.lh-200 {
+    line-height: 2.0; 
+}

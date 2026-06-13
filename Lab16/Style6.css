@@ -1,0 +1,12 @@
+body {
+ font-family: "Times New Roman", Times, serif;
+ padding: 40px;
+ background: #fff;
+}
+
+h1 {
+ font-size: 48px;
+ color: #000;
+ text-shadow: 5px 5px 5px #666;
+ margin: 0;
+}
