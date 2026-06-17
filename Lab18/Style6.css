@@ -1,0 +1,17 @@
+table {
+    border-collapse: separate;
+    border-spacing: 15px;
+    
+    /* Делаем внешнюю рамку двойной */
+    border: 4px double #777777;
+    
+    font-family: "Times New Roman", serif;
+    width: 35%;
+}
+
+td {
+    border: 1px solid #a52a2a;
+    padding: 12px 40px;           
+    text-align: left;
+    background-color: #ffffff;
+}

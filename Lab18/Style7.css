@@ -1,0 +1,16 @@
+table {
+    border-collapse: collapse;
+    border: 1px solid #000000;
+    font-family: "Times New Roman", serif;
+}
+
+th, td {
+    border: 1px solid #000000;
+    padding: 10px 20px;
+    text-align: left;
+}
+
+.accent-cell {
+    background-color: #ffcc00;
+    font-weight: bold;
+}

@@ -1,0 +1,23 @@
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 600px;
+    border: 2px solid #333;
+}
+th, td {
+    border: 1px solid #333;
+    padding: 10px;
+    text-align: center;
+}
+.header-red {
+    background-color: #FF0000;
+    color: white;
+}
+.row-blue {
+    background-color: #009999;
+    color: white;
+}
+.data-cell {
+    background-color: white;
+    color: black;
+}

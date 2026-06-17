@@ -1,0 +1,26 @@
+table {
+    border-collapse: collapse;
+    font-family: 'Times New Roman', Times, serif;
+    border-top: 3px solid maroon;
+    border-bottom: 3px solid maroon;
+}
+
+th, td {
+    padding: 6px 25px;
+    text-align: center;
+}
+
+th {
+    background-color: maroon;
+    color: white;
+    font-weight: bold;
+}
+
+td {
+    background-color: #fffacd;
+    color: black;
+}
+
+td:first-child {
+    text-align: left;
+}
