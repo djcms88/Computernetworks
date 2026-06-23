@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Калькулятор скидки</title>
+</head>
+<body>
+    <input type="number" id="price" placeholder="Стоимость товара">
+    <input type="number" id="age" placeholder="Возраст покупателя">
+    <button id="calcBtn">Рассчитать</button>
+    <p id="result"></p>
+
+    <script>
+        let priceInput = document.querySelector('#price');
+        let ageInput = document.querySelector('#age');
+        let calcBtn = document.querySelector('#calcBtn');
+        let result = document.querySelector('#result');
+
+        function getDiscount(age) {
+            if (age < 18) return 10;
+            if (age >= 60) return 20;
+            return 0;
+        }
+
+        calcBtn.onclick = function() {
+            let price = priceInput.value;
+            let age = ageInput.value;
+
+            if (price === '' || age === '') {
+                result.textContent = 'Ошибка: Заполните все поля!';
+                result.style.color = 'red';
+                return;
+            }
+
+            price = Number(price);
+            age = Number(age);
+
+            if (isNaN(price) || isNaN(age)) {
+                result.textContent = 'Ошибка: Введите числа!';
+                result.style.color = 'red';
+                return;
+            }
+
+            let discount = getDiscount(age);
+            let finalPrice = price - (price * discount / 100);
+
+            if (discount === 0) {
+                result.textContent = 'Итоговая цена: ' + finalPrice + ' рублей';
+            } else {
+                result.textContent = 'Итоговая цена: ' + finalPrice + ' рублей (скидка ' + discount + '%)';
+            }
+            result.style.color = 'green';
+        };
+    </script>
+</body>
+</html>

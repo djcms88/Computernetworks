@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Чаевые</title>
+</head>
+<body>
+    <input type="number" id="bill" placeholder="Сумма счёта">
+    <input type="number" id="tip" placeholder="Процент чаевых (0-50)">
+    <input type="number" id="people" placeholder="Количество человек" value="1">
+    <button onclick="calc()">Рассчитать</button>
+    <p id="tipResult"></p>
+    <p id="totalResult"></p>
+    <p id="personResult"></p>
+
+    <script>
+        function calc() {
+            let bill = document.getElementById('bill').value;
+            let tip = document.getElementById('tip').value;
+            let people = document.getElementById('people').value;
+            
+            let tipR = document.getElementById('tipResult');
+            let totalR = document.getElementById('totalResult');
+            let personR = document.getElementById('personResult');
+            
+            if (bill == '' || tip == '' || people == '') {
+                alert('Заполните все поля');
+                return;
+            }
+            
+            bill = Number(bill);
+            tip = Number(tip);
+            people = Number(people);
+            
+            if (bill < 0 || tip < 0 || tip > 50 || people < 1) {
+                alert('Проверьте введённые данные');
+                return;
+            }
+            
+            let tipAmount = bill * tip / 100;
+            let total = bill + tipAmount;
+            let perPerson = total / people;
+            
+            tipR.textContent = 'Сумма чаевых: ' + tipAmount + ' рублей';
+            totalR.textContent = 'Общая сумма: ' + total + ' рублей';
+            
+            if (people == 1) {
+                personR.textContent = 'Каждый должен заплатить по ' + perPerson + ' рублей';
+            } else {
+                personR.textContent = 'Каждый должен заплатить по ' + perPerson.toFixed(2) + ' рублей (' + people + ' человека)';
+            }
+            
+            tipR.style.color = 'blue';
+            totalR.style.color = 'green';
+            personR.style.color = 'purple';
+        }
+    </script>
+</body>
+</html>

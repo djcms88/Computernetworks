@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Проверка номера телефона</title>
+</head>
+<body>
+    <input type="tel" id="phone" placeholder="Номер телефона">
+    <button id="checkBtn">Проверить номер</button>
+    <p id="result"></p>
+
+    <script>
+        let phoneInput = document.querySelector('#phone');
+        let checkBtn = document.querySelector('#checkBtn');
+        let result = document.querySelector('#result');
+
+        function checkPhone(phone) {
+            if (phone === '') {
+                return 'Номер не может быть пустым';
+            }
+
+            let cleaned = phone;
+            let hasPlus = false;
+
+            if (cleaned[0] === '+') {
+                hasPlus = true;
+                cleaned = cleaned.slice(1);
+            }
+
+            for (let i = 0; i < cleaned.length; i++) {
+                if (cleaned[i] < '0' || cleaned[i] > '9') {
+                    return 'Номер содержит недопустимые символы';
+                }
+            }
+
+            let len = cleaned.length;
+
+            if (hasPlus) {
+                if (cleaned[0] !== '7') {
+                    return 'После + должна идти цифра 7';
+                }
+                if (len !== 11) {
+                    return 'Некорректный формат +7XXXXXXXXXX (нужно 10 цифр после +7)';
+                }
+                return 'Номер телефона верный';
+            }
+
+            if (cleaned[0] === '8') {
+                if (len !== 11) {
+                    return 'Некорректный формат 8XXXXXXXXXX (нужно 10 цифр после 8)';
+                }
+                return 'Номер телефона верный';
+            }
+
+            if (len === 10) {
+                return 'Номер телефона верный';
+            }
+
+            return 'Некорректная длина номера (нужно 10, 11 или 12 символов)';
+        }
+
+        checkBtn.onclick = function() {
+            let phone = phoneInput.value.trim();
+            let message = checkPhone(phone);
+            result.textContent = message;
+
+            if (message === 'Номер телефона верный') {
+                result.style.color = 'green';
+            } else {
+                result.style.color = 'red';
+            }
+        };
+    </script>
+</body>
+</html>

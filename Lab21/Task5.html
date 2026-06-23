@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Калькулятор ИМТ</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        input, button {
+            font-size: 16px;
+            padding: 8px;
+            margin: 5px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        #result {
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+            border: 2px solid #ccc;
+        }
+        #bmiValue {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+        #comment {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            margin: 10px 0;
+        }
+        #advice {
+            font-size: 16px;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .range {
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(to right, red, orange, green, orange, red, darkred);
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .pointer {
+            width: 20px;
+            height: 20px;
+            background: black;
+            border-radius: 50%;
+            position: relative;
+            top: -5px;
+            transition: margin-left 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <h2>Калькулятор ИМТ</h2>
+    
+    <input type="number" id="height" placeholder="Рост (см) от 50 до 250">
+    <input type="number" id="weight" placeholder="Вес (кг) от 10 до 300">
+    <button onclick="calcBMI()">Рассчитать ИМТ</button>
+    
+    <div id="result">
+        <div id="bmiValue">Введите данные</div>
+        <div class="range">
+            <div class="pointer" id="pointer"></div>
+        </div>
+        <div id="comment"></div>
+        <div id="advice"></div>
+    </div>
+
+    <script>
+        function calcBMI() {
+            let height = document.getElementById('height').value;
+            let weight = document.getElementById('weight').value;
+            
+            let bmiValue = document.getElementById('bmiValue');
+            let comment = document.getElementById('comment');
+            let advice = document.getElementById('advice');
+            let resultDiv = document.getElementById('result');
+            let pointer = document.getElementById('pointer');
+            
+            bmiValue.textContent = '';
+            comment.textContent = '';
+            advice.textContent = '';
+            resultDiv.style.backgroundColor = '#f9f9f9';
+            pointer.style.marginLeft = '0px';
+            
+            if (height == '' || weight == '') {
+                bmiValue.textContent = 'Ошибка: Заполните все поля';
+                bmiValue.style.color = 'red';
+                return;
+            }
+            
+            height = Number(height);
+            weight = Number(weight);
+            
+            if (height < 50 || height > 250) {
+                bmiValue.textContent = 'Ошибка: Рост должен быть от 50 до 250 см';
+                bmiValue.style.color = 'red';
+                return;
+            }
+            
+            if (weight < 10 || weight > 300) {
+                bmiValue.textContent = 'Ошибка: Вес должен быть от 10 до 300 кг';
+                bmiValue.style.color = 'red';
+                return;
+            }
+            
+            let heightM = height / 100;
+            let bmi = weight / (heightM * heightM);
+            let bmiRounded = bmi.toFixed(2);
+            
+            let commentText = '';
+            let adviceText = '';
+            let color = '';
+            let bgColor = '';
+            let position = 0;
+            
+            if (bmi < 16) {
+                commentText = 'Выраженный дефицит массы тела';
+                adviceText = 'Рекомендуется сбалансированное питание с повышенной калорийностью';
+                color = 'red';
+                bgColor = '#ffebee';
+                position = 0;
+            } else if (bmi < 18.5) {
+                commentText = 'Недостаточная масса тела';
+                adviceText = 'Рекомендуется сбалансированное питание с повышенной калорийностью';
+                color = 'orange';
+                bgColor = '#fff3e0';
+                position = 15;
+            } else if (bmi < 25) {
+                commentText = 'Нормальная масса тела';
+                adviceText = 'Отличный результат! Поддерживайте здоровый образ жизни';
+                color = 'green';
+                bgColor = '#e8f5e9';
+                position = 35;
+            } else if (bmi < 30) {
+                commentText = 'Избыточная масса тела (предожирение)';
+                adviceText = 'Рекомендуется увеличить физическую активность и скорректировать питание';
+                color = 'orange';
+                bgColor = '#fff3e0';
+                position = 55;
+            } else if (bmi < 35) {
+                commentText = 'Ожирение I степени';
+                adviceText = 'Рекомендуется консультация врача-диетолога';
+                color = 'red';
+                bgColor = '#ffebee';
+                position = 70;
+            } else if (bmi < 40) {
+                commentText = 'Ожирение II степени';
+                adviceText = 'Рекомендуется консультация врача-диетолога';
+                color = 'red';
+                bgColor = '#ffcdd2';
+                position = 85;
+            } else {
+                commentText = 'Ожирение III степени';
+                adviceText = 'Рекомендуется консультация врача-диетолога';
+                color = 'darkred';
+                bgColor = '#b71c1c';
+                position = 95;
+            }
+            
+            bmiValue.textContent = 'ИМТ: ' + bmiRounded;
+            bmiValue.style.color = color;
+            
+            comment.textContent = commentText;
+            comment.style.color = color;
+            
+            advice.textContent = adviceText;
+            advice.style.color = '#333';
+            
+            resultDiv.style.backgroundColor = bgColor;
+            
+            let maxPosition = 95;
+            let pointerPosition = (position / 100) * 95;
+            pointer.style.marginLeft = pointerPosition + '%';
+        }
+    </script>
+</body>
+</html>
