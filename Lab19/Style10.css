@@ -1,0 +1,36 @@
+body {
+    font-family: "Times New Roman", Times, serif;
+    padding: 20px;
+    margin: 0;
+}
+
+.box {
+    background-color: #00ced1;
+    color: #000000;
+    font-size: 18px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    max-width: 800px;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+}
+
+.box-1 {
+    border-radius: 50px 0 0 50px;
+}
+
+.box-2 {
+    border-radius: 40px 10px;
+}
+
+.box-3 {
+    border-radius: 13em/3em;
+}
+
+.box-4 {
+    border-radius: 13em 0.5em/1em 0.5em;
+}
+
+.box-5 {
+    border-radius: 8px;
+}

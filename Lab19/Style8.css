@@ -1,0 +1,41 @@
+body {
+    font-family: "Times New Roman", Times, serif;
+    padding: 20px;
+    margin: 0;
+}
+
+.box {
+    font-size: 16px;
+    text-align: center;
+    padding: 15px 10px;
+    margin-bottom: 15px;
+    max-width: 800px;
+    border-width: 25px;
+}
+
+.box-outset {
+    border-style: outset;
+    border-color: #0000ff;
+}
+
+.box-inset {
+    border-style: inset;
+    border-color: #ff0000 #0000ff #ff0000 #0000ff;
+}
+
+.box-groove {
+    border-style: groove;
+    border-color: #ff0000 #00cc00 #0000ff;
+}
+
+.box-ridge {
+    border-style: ridge;
+    border-color: #ff0000 #00cc00 #0000ff #cc00cc;
+}
+
+.note {
+    font-size: 15px;
+    line-height: 1.4;
+    margin-top: 25px;
+    max-width: 800px;
+}

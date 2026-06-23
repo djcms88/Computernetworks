@@ -1,0 +1,31 @@
+body {
+    font-family: "Times New Roman", Times, serif;
+    padding: 20px;
+    margin: 0;
+}
+
+.box {
+    font-size: 16px;
+    text-align: center;
+    padding: 15px 10px;
+    margin-bottom: 15px;
+    max-width: 800px;
+    border-width: 8px;
+    border-color: #000000;
+}
+
+.box-1 {
+    border-style: dotted solid dashed double;
+}
+
+.box-2 {
+    border-style: dotted solid dashed;
+}
+
+.box-3 {
+    border-style: dotted solid;
+}
+
+.box-4 {
+    border-style: dotted;
+}
