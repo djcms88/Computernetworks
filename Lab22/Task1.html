@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список книг</title>
+</head>
+<body>
+    <h2>Мои любимые книги</h2>
+    
+    <div id="output"></div>
+
+    <script>
+        let books = [
+            "1984 — Джордж Оруэлл",
+            "Мастер и Маргарита — Михаил Булгаков",
+            "Гарри Поттер и философский камень — Дж.К. Роулинг",
+            "Война и мир — Лев Толстой",
+            "Преступление и наказание — Фёдор Достоевский"
+        ];
+
+        let output = document.getElementById('output');
+
+        if (books.length === 0) {
+            output.innerHTML = '<p>Список пуст</p>';
+        } else {
+            let ol = document.createElement('ol');
+            
+            for (let i = 0; i < books.length; i++) {
+                let li = document.createElement('li');
+                li.textContent = books[i];
+                ol.appendChild(li);
+            }
+            
+            output.appendChild(ol);
+        }
+    </script>
+</body>
+</html>

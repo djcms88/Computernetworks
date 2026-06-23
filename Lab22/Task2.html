@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поиск города</title>
+</head>
+<body>
+    <h2>Поиск города</h2>
+    
+    <input type="text" id="cityInput" placeholder="Введите название города">
+    <button id="searchBtn">Найти</button>
+    
+    <p id="result"></p>
+
+    <script>
+        let города = ["Москва", "Санкт-Петербург", "Казань", "Новосибирск", "Екатеринбург"];
+        let input = document.getElementById('cityInput');
+        let button = document.getElementById('searchBtn');
+        let result = document.getElementById('result');
+
+        function findCity() {
+            let searchCity = input.value.trim();
+            
+            if (searchCity === '') {
+                result.textContent = 'Введите название города';
+                return;
+            }
+            
+            searchCity = searchCity.toLowerCase();
+            let cityFound = false;
+            
+            for (let i = 0; i < города.length; i++) {
+                if (города[i].toLowerCase() === searchCity) {
+                    cityFound = true;
+                    break;
+                }
+            }
+            
+            if (cityFound) {
+                result.textContent = 'Город найден';
+            } else {
+                result.textContent = 'Город не найден';
+            }
+        }
+
+        button.addEventListener('click', findCity);
+        input.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                findCity();
+            }
+        });
+    </script>
+</body>
+</html>

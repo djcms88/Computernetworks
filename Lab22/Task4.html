@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do список</title>
+</head>
+<body>
+    <h2>Мой To-Do список</h2>
+    
+    <input type="text" id="taskInput" placeholder="Новое дело...">
+    <button id="addTaskBtn">Добавить</button>
+    <button id="clearAllBtn">Очистить все</button>
+    <p id="counter">Всего дел: 0</p>
+    <p id="errorMsg" style="color: red;"></p>
+    <ul id="taskList"></ul>
+
+    <script>
+        let taskInput = document.getElementById('taskInput');
+        let addBtn = document.getElementById('addTaskBtn');
+        let clearAllBtn = document.getElementById('clearAllBtn');
+        let taskList = document.getElementById('taskList');
+        let errorMsg = document.getElementById('errorMsg');
+        let counter = document.getElementById('counter');
+
+        function updateCounter() {
+            let count = taskList.children.length;
+            counter.textContent = 'Всего дел: ' + count;
+        }
+
+        function createTaskItem(taskText) {
+            let li = document.createElement('li');
+            li.textContent = taskText;
+            
+            let deleteBtn = document.createElement('button');
+            deleteBtn.textContent = 'Удалить';
+            deleteBtn.onclick = function() {
+                li.remove();
+                updateCounter();
+            };
+            
+            li.appendChild(deleteBtn);
+            return li;
+        }
+
+        function addTask() {
+            let taskText = taskInput.value.trim();
+            
+            if (taskText === '') {
+                errorMsg.textContent = 'Введите текст дела!';
+                return;
+            }
+            
+            errorMsg.textContent = '';
+            let li = createTaskItem(taskText);
+            taskList.appendChild(li);
+            taskInput.value = '';
+            updateCounter();
+        }
+
+        function clearAll() {
+            taskList.innerHTML = '';
+            updateCounter();
+        }
+
+        addBtn.addEventListener('click', addTask);
+        clearAllBtn.addEventListener('click', clearAll);
+        
+        taskInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                addTask();
+            }
+        });
+
+        updateCounter();
+    </script>
+</body>
+</html>

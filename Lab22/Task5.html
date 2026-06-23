@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таблица умножения</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        td {
+            border: 1px solid #333;
+            padding: 10px 15px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        td:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">Таблица умножения</h2>
+    <div id="tableContainer"></div>
+
+    <script>
+        let tableHTML = "";
+        for (let i = 1; i <= 10; i++) {
+            tableHTML += "<tr>";
+            for (let j = 1; j <= 10; j++) {
+                tableHTML += "<td>" + i + "×" + j + "=" + (i * j) + "</td>";
+            }
+            tableHTML += "</tr>";
+        }
+        document.querySelector("#tableContainer").innerHTML = "<table border='1'>" + tableHTML + "</table>";
+    </script>
+</body>
+</html>
